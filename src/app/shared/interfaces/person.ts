@@ -6,3 +6,4 @@ export interface Person {
   address: String
 
 }
+
