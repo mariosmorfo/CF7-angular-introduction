@@ -1,28 +1,29 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
-import{FormsModule, NgForm} from '@angular/forms'
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm} from '@angular/forms'
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
 import { EPerson } from 'src/app/shared/interfaces/eperson';
+
 @Component({
   selector: 'app-eperson-template-driven-form',
   imports: [
     CommonModule,
     FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
+    MatSelectModule,
     MatInputModule,
-    MatSelectModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   templateUrl: './eperson-template-driven-form.component.html',
   styleUrl: './eperson-template-driven-form.component.css'
 })
 export class EpersonTemplateDrivenFormComponent {
   @Output() person = new EventEmitter<EPerson>()
-  @ViewChild('eform', {static:false}) form:NgForm | undefined;
-
+  @ViewChild('eForm', { static:false }) form:NgForm | undefined;
+  
   onSubmit(value: EPerson){
     console.log(value);
     console.log(this.form);
