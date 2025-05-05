@@ -35,8 +35,8 @@ export class EpersonReactiveFormComponent {
       givenName: 'Nick',
       surName: 'Nikolaou',
       age: 39,
-      email: 'nick.nikolaou@.gr',
-      education: 'Associates degree'
+      email: 'nick.nikolaou@aueb.gr',
+      education: 'Bachelor degree'
     })
   }
 }
