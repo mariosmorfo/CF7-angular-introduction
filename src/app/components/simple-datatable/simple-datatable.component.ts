@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output, effect, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, effect, inject } from '@angular/core';
 import { EPerson } from 'src/app/shared/interfaces/eperson';
 import {sortBy} from 'lodash-es';
-import { PersonService } from 'src/app/shared/services/person.service';
+// import { PersonService } from 'src/app/shared/services/person.service';
 @Component({
   selector: 'app-simple-datatable',
   imports: [],
@@ -11,19 +11,20 @@ import { PersonService } from 'src/app/shared/services/person.service';
 export class SimpleDatatableComponent {
   @Input() data: EPerson[] | undefined;
   @Output() personClicked = new EventEmitter<EPerson>()
+  @Input() myData: boolean = true
 
     ePersonsData: EPerson[] | undefined = [];
-    personService = inject(PersonService)
+    // personService = inject(PersonService)
 
-    constructor() {
-      effect(() => {
-        if(this.personService.modifiedDataTable()){
-          console.log("SIGNAL", this.data)
-          this.ePersonsData = this.data
-        }
-        this.personService.modifiedDataTable.set(false)
-      })
-    }
+    // constructor() {
+    //   effect(() => {
+    //     if(this.personService.modifiedDataTable()){
+    //       console.log("SIGNAL", this.data)
+    //       this.ePersonsData = this.data
+    //     }
+    //     this.personService.modifiedDataTable.set(false)
+    //   })
+    // }
 
     sortOrder = {
       givenName: 'none',
@@ -33,8 +34,14 @@ export class SimpleDatatableComponent {
       education: 'none'
     }
 
-      ngOnChanges(){
+      ngOnChanges(changes: SimpleChanges){
+        if(changes['data'] && this.data) {
+          console.log("ngOnChanges", this.data)
         this.ePersonsData = this.data
+        }
+        if(changes['myData']){
+          console.log('MyData')
+        }
       }
 
   onPersonClicked(person:EPerson){
@@ -44,7 +51,7 @@ export class SimpleDatatableComponent {
 
   sortData(sortKey: keyof EPerson): void{
     // console.log(sortKey)
-    this.ePersonsData = this.data;
+    // this.ePersonsData = this.data;
 
     if(this.sortOrder[sortKey] === 'asc'){
       this.sortOrder[sortKey] = 'desc'
