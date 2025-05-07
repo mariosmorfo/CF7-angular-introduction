@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -12,6 +12,9 @@ import { EPerson } from 'src/app/shared/interfaces/eperson';
   styleUrl: './eperson-reactive-form.component.css'
 })
 export class EpersonReactiveFormComponent {
+
+    @Output() person = new EventEmitter<EPerson>()
+
   form = new FormGroup({
     givenName: new FormControl('', Validators.required),
     surName: new FormControl('', Validators.required),
@@ -25,10 +28,24 @@ export class EpersonReactiveFormComponent {
     education: new FormControl('', Validators.required)
   })
 
-  onSubmit(data:any){
-    console.log("Data", data)
-    console.log("givenName", this.form.controls['givenName'].value)
+  onSubmit(){
+   if (this.form.valid){
+
+    console.log(this.form.value)
+    const person: EPerson = {  
+      givenName: this.form.value.givenName ?? '',
+      surName: this.form.value.surName ?? '',
+      age:String (this.form.value.age) ?? '',
+      email: this.form.value.email ?? '',
+      education: this.form.value.education ?? '',
+     }
+     this.person.emit(person)
+    }
+
+    this.form.reset()
+  
   }
+
 
   onSetValue(){
     this.form.setValue({
