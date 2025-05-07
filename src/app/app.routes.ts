@@ -8,15 +8,17 @@ import { ComponentOutputExampleComponent } from './components/component-output-e
 import { TemplateDrivenFormExampleComponent } from './components/template-driven-form-example/template-driven-form-example.component';
 import { ReactiveFormExampleComponent } from './components/reactive-form-example/reactive-form-example.component';
 import { HttpClientExampleComponent } from './components/http-client-example/http-client-example.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 export const routes: Routes = [
-  {path:'welcome', component: WelcomeComponent},
-  {path:'for-directive-example', component: ForDirectiveExampleComponent },
-  {path:'component-input-example', component: ComponentInputExampleComponent},
+  {path: 'for-directive-example', component: ForDirectiveExampleComponent },
+  {path: 'component-input-example', component: ComponentInputExampleComponent},
   {path: 'component-output-example', component: ComponentOutputExampleComponent},
-  {path:'event-bind-example', component: EventBindExampleComponent},
+  {path: 'event-bind-example', component: EventBindExampleComponent},
   {path: 'simple-datatable-example', component: SimpleDatatableExampleComponent},
   {path: 'template-driven-form-example', component: TemplateDrivenFormExampleComponent},
   {path: 'reactive-form-example', component: ReactiveFormExampleComponent},
   {path: 'http-client-example', component: HttpClientExampleComponent},
-  {path:'', redirectTo:'/welcome', pathMatch: 'full'}
+  {path: 'user-registration-example', component:UserRegistrationComponent},
+  {path:'', redirectTo:'/welcome', pathMatch: 'full'},
+  {path: 'welcome', component: WelcomeComponent},
 ];
