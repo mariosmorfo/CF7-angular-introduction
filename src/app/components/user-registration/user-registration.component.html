@@ -1,40 +1,44 @@
 <h4>User registration example</h4>
 
 <div class="d-flex flex-column w-50">
-  <form class="d-flex flex-column">
+  <form [formGroup]="form" class="d-flex flex-column">
     <mat-form-field>
       <mat-label>UserName</mat-label>
-      <input matInput type="text">
+      <input matInput type="text" formControlName="username">
       <mat-error>Username is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>First Name</mat-label>
-      <input matInput type="text">
+      <input matInput type="text" formControlName="name">
       <mat-error>Firstname is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input matInput type="text">
+      <input matInput type="text" formControlName="surname">
       <mat-error>Last name is required</mat-error>
     </mat-form-field>
 
+    
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput type="text">
+      <input matInput type="text" formControlName="email">
       <mat-error>Email is missing or invalid</mat-error>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Area</mat-label>
-      <input matInput type="text">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Road</mat-label>
-      <input matInput type="text">
-    </mat-form-field>
+    <div formGroupName="address">
+      <mat-form-field>
+        <mat-label>Area</mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Road</mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+    </div>
+   
 
     <mat-form-field>
       <mat-label>Password</mat-label>
