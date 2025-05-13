@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiURL: "https://coding-factory-backend.gr"
+  production: false,
+  apiURL : 'http://localhost/3001'
 };
