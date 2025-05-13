@@ -1,10 +1,22 @@
 export interface User {
-  username: String,
-  password: String,
-  surName: String,
-  email: String,
+  username: string;
+  password: string;
+  name: string;
+  surname: string;
+  email: string;
   address: {
-    area: String,
-    road: String
+    area: string;
+    road: string
   }
+}
+
+export interface Credentials {
+  username: string;
+  password: string
+}
+
+export interface LoggedInUser {
+  username: string,
+  email: string,
+  roles: [string]
 }
