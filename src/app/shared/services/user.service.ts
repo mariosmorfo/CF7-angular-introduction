@@ -4,8 +4,8 @@ import { environment } from 'src/environments/environment';
 import { User, Credentials, LoggedInUser} from '../interfaces/user';
 import { Router } from '@angular/router';
 
-const API_URL = `${environment.apiURL}/api/users`
-const API_URL_AUTH = `${environment.apiURL}/api/auth`
+const API_URL = `/api/users`
+const API_URL_AUTH = `/api/auth`
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,8 @@ export class UserService {
     ( `${API_URL_AUTH}/login`, credentials
 
     )
+    console.log('Sending login to:', `${API_URL_AUTH}/login`, credentials);
+
   }
 
   logoutUser(){
