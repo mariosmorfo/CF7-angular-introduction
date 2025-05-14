@@ -31,6 +31,7 @@ export const routes: Routes = [
     canActivate: [authGuard, adminRoleGuard]
   },
   {path: 'login', component:UserLoginComponent},
+  {path: 'restricted-content', component:ReactiveFormExampleComponent},
   {path:'', redirectTo:'/welcome', pathMatch: 'full'},
   {path: 'welcome', component: WelcomeComponent},
 ];
