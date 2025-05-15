@@ -59,13 +59,13 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page. -->
 
 
-# 🛠️ Angular User Registration & Authentication App
+#  Angular User Registration & Authentication App
 
 This project is a full-stack web application built with **Angular** (frontend) and **Node.js + Express** (backend), connected via a RESTful API. It provides **user registration**, **authentication**, and **email duplication checking** through a reactive form system.
 
 ---
 
-## 🌐 Live Stack Overview
+##  Live Stack Overview
 
 - **Frontend:** Angular 17+
 - **Backend:** Node.js + Express.js
@@ -76,28 +76,28 @@ This project is a full-stack web application built with **Angular** (frontend) a
 
 ---
 
-## ⚙️ Features
+##  Features
 
-### ✅ User Registration
+###  User Registration
 - Reactive form with validation:
   - Required fields
   - Email format check
   - Password confirmation
 - Live check for **duplicate email** using backend API.
 
-### ✅ User Login
+###  User Login
 - Sends credentials to backend
 - Receives and stores JWT on success
 - Handles error messages on failure
 
-### ✅ Backend API
+###  Backend API
 - `/api/auth/login` – user authentication
 - `/api/users/register` – user registration
 - `/api/users/check_duplicate_email/:email` – email validation
 
 ---
 
-## 🔌 Frontend–Backend Connection
+##  Frontend–Backend Connection
 
 This Angular app connects to the Node.js backend through RESTful HTTP calls.
 
@@ -106,12 +106,4 @@ This Angular app connects to the Node.js backend through RESTful HTTP calls.
 - Node backend runs on `http://localhost:3001`
 - Uses a `proxy.conf.json` file so Angular can access backend routes without CORS issues.
 
-```json
-// proxy.conf.json
-{
-  "/api": {
-    "target": "http://localhost:3001",
-    "secure": false,
-    "changeOrigin": true
-  }
-}
+
